@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>I Do</title>
+<link href="/static/theme/bootstrap/css/lib.css" rel="stylesheet" type="text/css" />
+<link href="/static/theme/bootstrap/css/common.css" rel="stylesheet" type="text/css" />
+<link href="/static/theme/bootstrap/css/index.css" rel="stylesheet" type="text/css" />
+<link href="http://fonts.googleapis.com/css?family=Expletus+Sans:400,400italic,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/static/theme/bootstrap/js/lib.js"></script>
+</head>
+
+<body>
+<div id="nav-menu" class="navbar" role="navigation">
+	<div class="container">
+        <div class="nav-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+            	<li class="active"><a href="#">首页/Home</a></li>
+                <li><a class="text-muted" href="#">配饰/Accessories</a></li>
+                <li class="dropdown">
+                	<a href="#" class="dropdown-toggle" data-toggle="dropdown">指环/Rings <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    	<li><a class="text-muted" href="#">订婚/Engagement</a></li>
+                        <li><a class="text-muted" href="#">结婚/Marriage</a></li>
+                        <li><a class="text-muted" href="#">纪念日/Memorial Day</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.nav-collapse -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div><!-- /.container -->
+</div><!-- /.navbar -->
+<div id="carousel-index" class="carousel slide">
+	<!-- Indicators -->
+    <ol class="carousel-indicators">
+    	<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+    
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+    	<div class="item active">
+        	<img src="http://its-international.net/images/mainimg12.jpg" alt="">
+            <div class="carousel-caption">
+            	<h2 class="custom-font-expletus-sans">February 14</h2>
+                <h4 class="custom-font-expletus-sans"><em>Valentine's Day, Everlasting Love</em></h4>
+            </div>
+        </div>
+        <div class="item">
+        	<img src="http://its-international.net/images/mainimg14.jpg" alt="">
+            <div class="carousel-caption">
+            	<h2 class="custom-font-expletus-sans">May 19</h2>
+                <h4 class="custom-font-expletus-sans"><em>Our wedding anniversary</em></h4>
+            </div>
+        </div>
+        <div class="item">
+        	<img src="http://its-international.net/images/mainimg15.jpg" alt="">
+            <div class="carousel-caption">
+            	<h2 class="custom-font-expletus-sans">农历七夕</h2>
+                <h4 class="custom-font-expletus-sans"><em>Magpie Bridge</em></h4>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-index" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+    <a class="right carousel-control" href="#carousel-index" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+</div>
+<div id="description" class="container">
+	<div class="jumbotron">
+    	<h3 class="custom-font-expletus-sans"><em>Sweet Heart</em></h3>
+        <blockquote class="text-muted">Sweet Heart, 由瑞典珠宝设计师Efva Attling亲自设计，充满斯堪的纳维亚风情的设计，厚重中带着质朴的表达，值得一生珍惜。</blockquote>
+        <p><a class="btn btn-primary btn-lg">Learn more</a></p>
+    </div>
+</div>
+<script type="text/javascript" src="/static/theme/bootstrap/js/common.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#description').attr('style','margin-top:' + $('#carousel-index').height() + 'px;');
+	$(window).resize(function() {
+		$('#carousel-index .carousel-caption').attr('style','top:' + $('#carousel-index').height() + 'px;');
+		$('#description').attr('style','margin-top:' + $('#carousel-index').height() + 'px;');
+	});
+	$('.carousel').carousel({
+		interval: 5000,
+		pause: 'hover',
+	});
+});
+</script>
+</body>
+</html>
