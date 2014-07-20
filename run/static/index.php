@@ -1,5 +1,5 @@
 <?php
-define('APPPATH', dirname(dirname(__FILE__)));
+define('APPPATH', dirname(dirname(dirname(__FILE__))));
 /**
  * configs
  * 
@@ -18,8 +18,7 @@ $runtime = new Runtime();
 
 $_conf = [
 	'scope'	=>	[
-		'bootstrap'	=>	'/static/theme/bootstrap/',
-		'dashboard'	=>	'/static/dashboard/'
+		'magister'	=>	'/run/static/themes/magister/',
 	],
 	'content_type'	=>	[
 		'css'	=>	'text/css',
@@ -205,16 +204,16 @@ function parse_file($_file, $_type, $_compress = FALSE ,$_runtime) {
 	
 		if ($_type == 'css' || $_type == 'less') {
 			if (!class_exists('CSSmin')) {
-				include '../libraries/Compose/Css.php';
+				include_once APPPATH . '/libraries/Access/Compose/Css.php';
 			}
-			$compressor = new \Compose\CSSmin();
+			$compressor = new \Access\Compose\CSSmin();
 			$_result = $compressor->run($_result, 5000);
 		}
 		elseif ($_type == 'js') {
 			if (!class_exists('JSMinPlus')) {
-				include '../libraries/Compose/Jsplus.php';
+				include_once APPPATH . '/libraries/Access/Compose/Jsplus.php';
 			}
-			$_result = \Compose\JSMinPlus::minify($_result);
+			$_result = \Access\Compose\JSMinPlus::minify($_result);
 		}
 	}
 	$_runtime->stop($_file.'(compress)');
@@ -224,11 +223,11 @@ function parse_file($_file, $_type, $_compress = FALSE ,$_runtime) {
 
 function exec_less ($_file, $_compress = FALSE) {
 	if (!class_exists('lessc')) {
-		include_once '../libraries/Compose/Less.php';
+		include_once APPPATH . '/libraries/Access/Compose/Less.php';
 	}
 	$_result = FALSE;
 	
-	$less_handler = new \Compose\lessc();
+	$less_handler = new \Access\Compose\lessc();
 	try {
 		$_result = $less_handler->compileFile($_file);
 	} catch (exception $e) {

@@ -1,7 +1,8 @@
 <?php
 class ViewPlugin extends Yaf\Plugin_Abstract {
+
 	function __construct() {
-		
+
 	}
 	public function routerStartup(Yaf\Request_Abstract $request, Yaf\Response_Abstract $response) {
 		ob_start();
@@ -9,7 +10,7 @@ class ViewPlugin extends Yaf\Plugin_Abstract {
 	
 	public function routerShutdown(Yaf\Request_Abstract $request, Yaf\Response_Abstract $response) {
 		
-		$script_path = 
+		/*$script_path =
 			\Yaf\Registry::get('config')->application->view->template_dir_prefix
 			.
 			(strtolower($request->module) == 'index' ? '' : DIRECTORY_SEPARATOR.'modules'.DIRECTORY_SEPARATOR.$request->module)
@@ -23,29 +24,29 @@ class ViewPlugin extends Yaf\Plugin_Abstract {
 			'module'		=>	strtolower($request->module),
 			'controller'	=>	strtolower($request->controller),
 			'action'		=>	strtolower($request->action),
-		]);
+		]);*/
 		
 	}
 	
 	public function dispatchLoopStartup(Yaf\Request_Abstract $request, Yaf\Response_Abstract $response) {
-		Yaf\Dispatcher::getInstance()->setView(\Adapter::getInstance('\Core\View'));
+		//Yaf\Dispatcher::getInstance()->setView(\Adapter::getInstance('\Core\View'));
+		\Core\View::initialize($request);
+		Yaf\Dispatcher::getInstance()->setView(\Core\View::get_instance());
 	}
 	
 	public function preDispatch(Yaf\Request_Abstract $request, Yaf\Response_Abstract $response) {
-		
+
 	}
 	
 	public function postDispatch(Yaf\Request_Abstract $request, Yaf\Response_Abstract $response) {
-		
+
 	}
 	
 	public function dispatchLoopShutdown(Yaf\Request_Abstract $request, Yaf\Response_Abstract $response) {
-		
+
 	}
 	
 	public function preResponse(Yaf\Request_Abstract $request, Yaf\Response_Abstract $response) {
-		
+
 	}
 }
-
-?>

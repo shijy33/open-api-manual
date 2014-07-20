@@ -1,97 +1,192 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>颐彩珠宝</title>
-<link href="/static/?css/lib!no-compress;less/index!no-compress,no-cache" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <meta name="viewport"    content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
+    <title>Manual - VOPI Open API</title>
+    <link rel="shortcut icon" href="/static/themes/magister/img/favicon.png">
+    <link href="/static/?css/lib!no-compress;css/magister!no-compress;less/index!no-compress,no-cache" rel="stylesheet" type="text/css">
 </head>
 
-<body>
-<nav id="nav-menu" class="navbar navbar-default" role="navigation">
+<!-- use "theme-invert" class on bright backgrounds, also try "text-shadows" class -->
+<body class="text-shadows">
+
+<nav class="mainmenu">
     <div class="container">
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-{foreach $_CATALOG as $item}
-                <li{if $_URI.GUID == $item.GUID} class="active"{/if}>
-{if $item.sub_catalogs}
-            	    <a href="{$item.GUID}" class="dropdown-toggle" data-toggle="dropdown">{$item.title} <b class="caret"></b></a>
-                    <ul class="dropdown-menu">                    
-{foreach $item.sub_catalogs as $sub_item}                        <li><a href="{$sub_item.GUID}">{$sub_item.title}</a></li>
-{/foreach}
-                    </ul>
-{else}
-                    <a href="{$item.GUID}">{$item.title}</a>
-{/if}
-                </li>
-{/foreach}
+        <div class="dropdown">
+            <button type="button" class="navbar-toggle" data-toggle="dropdown"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            <!-- <a data-toggle="dropdown" href="#">Dropdown trigger</a> -->
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li><a href="#head" class="active">Hello</a></li>
+                <li><a href="#documentation">Documentation</a></li>
+                <li><a href="#about">About</a></li>
             </ul>
         </div>
     </div>
 </nav>
-<div id="carousel-index" class="carousel slide">
-	<!-- Indicators -->
-    <!-- <ol class="carousel-indicators">
-    	<li data-target="#carousel-index" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-index" data-slide-to="1"></li>
-        <li data-target="#carousel-index" data-slide-to="2"></li>
-        <li data-target="#carousel-index" data-slide-to="3"></li>
-    </ol> -->
-    
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-{foreach $_RESULT.related.slideshow as $slideshow}
-    	<div class="item{if $slideshow@first} active{/if}">
-        	<img src="{$slideshow.image}">
-            <div class="carousel-caption">
-                <h3 class="custom-font-lato">{$slideshow.sub_title}</h3>
+
+
+<!-- Main (Home) section -->
+<section class="section" id="head">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center">
+
+                <!-- Site Title, your name, HELLO msg, etc. -->
+                <h1 class="title">Maunal</h1>
+                <h2 class="subtitle">For VOPI Open Apis.</h2>
+
+                <!-- Short introductory (optional) -->
+                <h3 class="tagline">
+                    Potentially, the best place to tell people why they are here.<br>
+                    So, this is a demo page built to showcase the beauty of the template.
+                </h3>
+
+                <!-- Nice place to describe your site in a sentence or two -->
+                <p><a href="#documentation" class="btn btn-default btn-lg">View Documentation now</a></p>
+
+            </div> <!-- /col -->
+        </div> <!-- /row -->
+
+    </div>
+</section>
+
+<section class="section" id="documentation">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center">
+                <h1 class="title">Documentation</h1>
+                <h2 class="subtitle">For VOPI Open Apis.</h2>
             </div>
         </div>
-{/foreach}
-    </div>
-    <div class="cover"></div>
-    <!-- Controls -->
-    <a class="left carousel-control" href="#carousel-index" data-slide="prev"><span class="icon-prev"></span></a>
-    <a class="right carousel-control" href="#carousel-index" data-slide="next"><span class="icon-next"></span></a>
-</div>
-<div id="description" class="container">
-    <div class="row">
-	<div class="jumbotron col-md-9">
-    	<h2 class="custom-font-lato"><em class="text-danger">{$_POST.sub_title}</em></h2>
-        <blockquote class="text-muted">{$_POST.content}</blockquote>
-    </div>
-    </div>
-</div>
-<div id="footer" class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <h3 class="text-muted"><small>尊享定制</small> <em class="custom-font-lato">400-928-2883</em></h3>
-        </div>
-        <div class="col-md-6">
-            <ol class="breadcrumb pull-right">
-                <li><a href="#">新闻动态</a></li>
-                <li><a href="#">尊贵服务</a></li>
-                <li><a href="#">定制流程</a></li>
-            </ol>
-            <div class="copyright pull-right text-right text-muted">&copy; 2013 07studio.org.</div>
+        <div class="row">
+                <div class="col-md-4 col-lg-4">
+                    <h3>USER SECTION</h3>
+                    <blockquote>
+                        <p><a href="">/user/profile</a></p>
+                        <p><a href="">/user/number</a></p>
+                    </blockquote>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <h3>NUMBER SECTION</h3>
+                    <blockquote>
+                        <p><a href="">/number/service</a></p>
+                        <p><a href="">/number/cost</a></p>
+                    </blockquote>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <h3>RESOURCE SECTION</h3>
+                    <blockquote>
+                        <p><a href="">/resource/number</a></p>
+                    </blockquote>
+                </div>
         </div>
     </div>
-</div>
-<script type="text/javascript" src="/static/?js/lib!no-compress;js/common;"></script>
-<script type="text/javascript">
-{literal}
-$(function(){
-	$('#description').attr('style','margin-top:' + ($('#carousel-index').height() + 50) + 'px;');
-	$('#carousel-index .carousel-caption').attr('style','top:' + $('#carousel-index').height() + 'px;');
-	$(window).resize(function() {
-		$('#carousel-index .carousel-caption').attr('style','top:' + $('#carousel-index').height() + 'px;');
-		$('#description').attr('style','margin-top:' + ($('#carousel-index').height() + 50) + 'px;');
-	});
-	$('.carousel').carousel({
-		interval: 8000,
-		pause: 'hover',
-	});
-});
-{/literal}
-</script>
+</section>
+
+<!-- Second (About) section -->
+<section class="section" id="about">
+    <div class="container">
+
+        <h2 class="text-center title">About me</h2>
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-2">
+                <h5><strong>Where's my lorem ipsum?<br></strong></h5>
+                <p>Well, here it is: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, ullam, ducimus, eaque, ex autem est dolore illo similique quasi unde sint rerum magnam quod amet iste dolorem ad laudantium molestias enim quibusdam inventore totam fugit eum iusto ratione alias deleniti suscipit modi quis nostrum veniam fugiat debitis officiis impedit ipsum natus ipsa. Doloremque, id, at, corporis, libero laborum architecto mollitia molestiae maxime aut deserunt sed perspiciatis quibusdam praesentium consectetur in sint impedit voluptates! Deleniti, sequi voluptate recusandae facere nostrum?</p>
+            </div>
+            <div class="col-sm-4">
+                <h5><strong>More, more lipsum!<br></strong></h5>
+                <p>Tempore, eos, voluptatem minus commodi error aut eaque neque consequuntur optio nesciunt quod quibusdam. Ipsum, voluptatibus, totam, modi perspiciatis repudiandae odio ad possimus molestias culpa optio eaque itaque dicta quod cupiditate reiciendis illo illum aspernatur ducimus praesentium quae porro alias repellat quasi cum fugiat accusamus molestiae exercitationem amet fugit sint eligendi omnis adipisci corrupti. Aspernatur.</p>
+                <h5><strong>Author links<br></strong></h5>
+                <p><a href="http://be.net/pozhilov9409">Behance</a> / <a href="https://twitter.com/serggg">Twitter</a> / <a href="http://linkedin.com/pozhilov">LinkedIn</a> / <a href="https://www.facebook.com/pozhilov">Facebook</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Third (Works) section -->
+<section class="section" id="themes">
+    <div class="container">
+
+        <h2 class="text-center title">More Themes</h2>
+        <p class="lead text-center">
+            Huge thank you to all people who publish<br>
+            their photos at <a href="http://unsplash.com">Unsplash</a>, thank you guys!
+        </p>
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-2">
+                <div class="thumbnail">
+                    <img src="assets/screenshots/sshot1.jpg" alt="">
+                    <div class="caption">
+                        <h3>Thumbnail label</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque doloribus enim vitae nam cupiditate eius at explicabo eaque facere iste.</p>
+                        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                    <img src="assets/screenshots/sshot4.jpg" alt="">
+                    <div class="caption">
+                        <h3>Thumbnail label</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque doloribus enim vitae nam cupiditate eius at explicabo eaque facere iste.</p>
+                        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-sm-offset-2">
+                <div class="thumbnail">
+                    <img src="assets/screenshots/sshot5.jpg" alt="">
+                    <div class="caption">
+                        <h3>Thumbnail label</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque doloribus enim vitae nam cupiditate eius at explicabo eaque facere iste.</p>
+                        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                    <img src="assets/screenshots/sshot3.jpg" alt="">
+                    <div class="caption">
+                        <h3>Thumbnail label</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque doloribus enim vitae nam cupiditate eius at explicabo eaque facere iste.</p>
+                        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Fourth (Contact) section -->
+<section class="section" id="contact">
+    <div class="container">
+
+        <h2 class="text-center title">Get in touch</h2>
+
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <p class="lead">Have a question about this template, or want to suggest a new feature?</p>
+                <p>Feel free to email me, or drop me a line in Twitter!</p>
+                <p><b>gt@gettemplate.com</b><br><br></p>
+                <ul class="list-inline list-social">
+                    <li><a href="https://twitter.com/serggg" class="btn btn-link"><i class="fa fa-twitter fa-fw"></i> Twitter</a></li>
+                    <li><a href="https://github.com/pozhilov" class="btn btn-link"><i class="fa fa-github fa-fw"></i> Github</a></li>
+                    <li><a href="http://linkedin/in/pozhilov" class="btn btn-link"><i class="fa fa-linkedin fa-fw"></i> LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Load js libs only when the page is loaded. -->
+<script src="/static/?js/lib;js/modernizr;js/magister"></script>
 </body>
 </html>

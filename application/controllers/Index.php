@@ -13,7 +13,7 @@ class IndexController extends Yaf\Controller_Abstract {
      */
 	
 	public function indexAction() {
-		var_dump($_SERVER);
-		return FALSE;
+
+		return TRUE;
 	}
 }

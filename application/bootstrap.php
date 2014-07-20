@@ -16,7 +16,7 @@ class Bootstrap extends Yaf\Bootstrap_Abstract{
 	}
 	
 	public function _initRoute(Yaf\Dispatcher $dispatcher) {
-		Yaf\Dispatcher::getInstance()->getRouter()->addConfig(Yaf\Registry::get('config')->routes);
+		//Yaf\Dispatcher::getInstance()->getRouter()->addConfig(Yaf\Registry::get('config')->routes);
 	}
 	
 	public function _initMemorySet(Yaf\Dispatcher $dispatcher) {
@@ -34,8 +34,8 @@ class Bootstrap extends Yaf\Bootstrap_Abstract{
 	public function _initPlugin(Yaf\Dispatcher $dispatcher) {
 		//注册插件
 		$dispatcher->registerPlugin(new ViewPlugin());
-		$dispatcher->registerPlugin(new DashboardPlugin());
-		$dispatcher->registerPlugin(new DBPlugin());
+		//$dispatcher->registerPlugin(new DashboardPlugin());
+		//$dispatcher->registerPlugin(new DBPlugin());
 	}
 	
 	/**
